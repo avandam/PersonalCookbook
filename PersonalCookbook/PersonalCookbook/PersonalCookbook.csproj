@@ -102,6 +102,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PersonalCookbook.Bootstrapper\PersonalCookbook.Bootstrapper.csproj">
+      <Project>{05b01cc4-21d5-4b46-bf52-c2575b1a247f}</Project>
+      <Name>PersonalCookbook.Bootstrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalCookbook.Logic.Interfaces\PersonalCookbook.Logic.Interfaces.csproj">
+      <Project>{6736e168-fb55-48ec-9981-dc2b11ce80d7}</Project>
+      <Name>PersonalCookbook.Logic.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalCookbook.Models\PersonalCookbook.Models.csproj">
+      <Project>{bbeabe32-d65e-4c07-8007-6d510d0bf7a6}</Project>
+      <Name>PersonalCookbook.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

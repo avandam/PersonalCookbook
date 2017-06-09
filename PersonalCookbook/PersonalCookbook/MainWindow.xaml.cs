@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PersonalCookbook.Bootstrapper;
+using PersonalCookbook.Logic.Interfaces;
+using PersonalCookbook.Models;
 
 namespace PersonalCookbook
 {
@@ -20,9 +23,15 @@ namespace PersonalCookbook
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IRecipeRepository recipeRepository;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // TODO [Alexander]: Use Factory and remove InternalsVisibleTo once the database is up and running
+            recipeRepository = TestFactory.GetRecipeRepository();
+            List<Recipe> recipes = recipeRepository.GetAllRecipes();
         }
     }
 }
