@@ -12,7 +12,18 @@ namespace PersonalCookbook.Dal.Stub
     {
         public List<Ingredient> GetIngredientsForRecipe(int recipeId)
         {
-            return new List<Ingredient>() { new Ingredient("Tomaat"), new Ingredient("Soep")};
+            if (recipeId == 1)
+            {
+                return new List<Ingredient>() {new Ingredient("Tomaat"), new Ingredient("Soep")};
+            }
+            else if (recipeId == 2)
+            {
+                return new List<Ingredient>() {new Ingredient("Champignon"), new Ingredient("Soep") };
+            }
+            else
+            {
+                return new List<Ingredient>();
+            }
         }
     }
 }

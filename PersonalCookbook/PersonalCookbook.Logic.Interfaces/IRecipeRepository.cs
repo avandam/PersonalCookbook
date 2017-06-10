@@ -11,6 +11,6 @@ namespace PersonalCookbook.Logic.Interfaces
     {
         List<Recipe> GetAllRecipes();
         List<Recipe> GetRecipesWithIngredients();
-
+        List<RecipeSummary> GetAllRecipeSummaries();
     }
 }

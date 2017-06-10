@@ -31,7 +31,7 @@ namespace PersonalCookbook
 
             // TODO [Alexander]: Use Factory and remove InternalsVisibleTo once the database is up and running
             recipeRepository = TestFactory.GetRecipeRepository();
-            List<Recipe> recipes = recipeRepository.GetAllRecipes();
+            List<RecipeSummary> recipes = recipeRepository.GetAllRecipeSummaries();
             listRecipes.ItemsSource = recipes;
         }
     }

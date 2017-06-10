@@ -40,5 +40,17 @@ namespace PersonalCookbook.Logic
             }
             return recipes;
         }
+
+        public List<RecipeSummary> GetAllRecipeSummaries()
+        {
+            List<Recipe> recipes = GetAllRecipes();
+            List<RecipeSummary> summaries = new List<RecipeSummary>();
+            foreach (Recipe recipe in recipes)
+            {
+                RecipeSummary summary = new RecipeSummary(recipe.Name, recipe.Source, recipe.Rating);
+                summaries.Add(summary);
+            }
+            return summaries;
+        }
     }
 }

@@ -19,17 +19,19 @@ namespace PersonalCookbook.Logic.Tests
         public void GetAllRecipesTest()
         {
             // Setup
-            
+
             IRecipeRepository repo = TestFactory.GetRecipeRepository();
             List<Recipe> expectedRecipes = new List<Recipe>();
             expectedRecipes.Add(new Recipe("TomatenSoep", "Chantal", 4, 1));
+            expectedRecipes.Add(new Recipe("ChampignonSoep", "Rudolph", 3, 2));
 
             // Do
             List<Recipe> actualRecipes = repo.GetAllRecipes();
 
             // Assert
-            Assert.AreEqual(1, actualRecipes.Count);
+            Assert.AreEqual(2, actualRecipes.Count);
             Assert.IsTrue(actualRecipes[0].Equals(expectedRecipes[0]));
+            Assert.IsTrue(actualRecipes[1].Equals(expectedRecipes[1]));
         }
 
         [TestMethod()]
@@ -41,17 +43,43 @@ namespace PersonalCookbook.Logic.Tests
             List<Ingredient> ingredients = new List<Ingredient>() { new Ingredient("Tomaat"), new Ingredient("Soep") };
             recipe.AddIngredients(ingredients);
             expectedRecipes.Add(recipe);
+            recipe = new Recipe("ChanpignonSoep", "Rudolph", 3, 2);
+            ingredients = new List<Ingredient>() {new Ingredient("Champignon"), new Ingredient("Soep")};
+            recipe.AddIngredients(ingredients);
+            expectedRecipes.Add(recipe);
 
             // Do
             List<Recipe> actualRecipes = repo.GetRecipesWithIngredients();
 
             // Assert
-            Assert.AreEqual(1, actualRecipes.Count);
+            Assert.AreEqual(2, actualRecipes.Count);
             Assert.IsTrue(actualRecipes[0].Equals(expectedRecipes[0]));
+            Assert.IsTrue(actualRecipes[1].Equals(expectedRecipes[1]));
             for (int i = 0; i < actualRecipes[0].Ingredients.Count; i++)
             {
                 Assert.IsTrue(actualRecipes[0].Ingredients[i].Equals(expectedRecipes[0].Ingredients[i]));
             }
+            for (int i = 0; i < actualRecipes[1].Ingredients.Count; i++)
+            {
+                Assert.IsTrue(actualRecipes[1].Ingredients[i].Equals(expectedRecipes[1].Ingredients[i]));
+            }
+        }
+
+        [TestMethod()]
+        public void GetAllRecipeSummariesTest()
+        {
+            IRecipeRepository repo = new RecipeRepository(new StubRecipeContext());
+            List<RecipeSummary> expectedSummaries= new List<RecipeSummary>();
+            RecipeSummary summary = new RecipeSummary("TomatenSoep", "Chantal", 4);
+            expectedSummaries.Add(summary);
+            summary = new RecipeSummary("ChampignonSoep", "Rudolph", 3);
+            expectedSummaries.Add(summary);
+
+            List<RecipeSummary> actualSummaries = repo.GetAllRecipeSummaries();
+
+            Assert.AreEqual(2, actualSummaries.Count);
+            Assert.IsTrue(actualSummaries[0].Equals(expectedSummaries[0]));
+            Assert.IsTrue(actualSummaries[1].Equals(expectedSummaries[1]));
         }
     }
 }
