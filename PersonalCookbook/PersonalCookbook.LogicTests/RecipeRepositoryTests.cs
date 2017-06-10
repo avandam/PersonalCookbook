@@ -22,7 +22,7 @@ namespace PersonalCookbook.Logic.Tests
             
             IRecipeRepository repo = TestFactory.GetRecipeRepository();
             List<Recipe> expectedRecipes = new List<Recipe>();
-            expectedRecipes.Add(new Recipe("TomatenSoep", 1));
+            expectedRecipes.Add(new Recipe("TomatenSoep", "Chantal", 4, 1));
 
             // Do
             List<Recipe> actualRecipes = repo.GetAllRecipes();
@@ -37,7 +37,7 @@ namespace PersonalCookbook.Logic.Tests
         {
             IRecipeRepository repo = new RecipeRepository(new StubRecipeContext(), new StubIngredientContext());
             List<Recipe> expectedRecipes = new List<Recipe>();
-            Recipe recipe = new Recipe("TomatenSoep", 1);
+            Recipe recipe = new Recipe("TomatenSoep", "Chantal", 4, 1);
             List<Ingredient> ingredients = new List<Ingredient>() { new Ingredient("Tomaat"), new Ingredient("Soep") };
             recipe.AddIngredients(ingredients);
             expectedRecipes.Add(recipe);

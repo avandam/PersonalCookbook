@@ -9,19 +9,21 @@ namespace PersonalCookbook.Models
     public class Recipe
     {
         public string Name { get; private set; }
-
         public int Id { get; private set; } = -1;
-
+        public string Source { get; private set; }
+        public int Rating { get; private set; }
         public List<Ingredient> Ingredients { get; private set; }
 
-        public Recipe(string name, int id) : this(name)
+        public Recipe(string name, string source, int rating, int id) : this(name, source, rating)
         {
             Id = id;
         }
 
-        public Recipe(string name)
+        public Recipe(string name, string source, int rating)
         {
             Name = name;
+            Source = source;
+            Rating = rating;
             Ingredients = new List<Ingredient>();
         }
 

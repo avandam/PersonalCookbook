@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <ListView Margin="10" Name="listRecipes">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Title" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Source" Width="175" DisplayMemberBinding="{Binding Source}"/>
+                    <GridViewColumn Header="Rating" Width="50" DisplayMemberBinding="{Binding Rating}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
