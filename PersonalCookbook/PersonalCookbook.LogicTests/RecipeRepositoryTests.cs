@@ -22,8 +22,8 @@ namespace PersonalCookbook.Logic.Tests
 
             IRecipeRepository repo = TestFactory.GetRecipeRepository();
             List<Recipe> expectedRecipes = new List<Recipe>();
-            expectedRecipes.Add(new Recipe("TomatenSoep", "Chantal", 4, 1));
-            expectedRecipes.Add(new Recipe("ChampignonSoep", "Rudolph", 3, 2));
+            expectedRecipes.Add(new Recipe("TomatenSoep", "Chantal", 4, "blaat", 1));
+            expectedRecipes.Add(new Recipe("ChampignonSoep", "Rudolph", 3,"schaap", 2));
 
             // Do
             List<Recipe> actualRecipes = repo.GetAllRecipes();
@@ -39,11 +39,11 @@ namespace PersonalCookbook.Logic.Tests
         {
             IRecipeRepository repo = new RecipeRepository(new StubRecipeContext(), new StubIngredientContext());
             List<Recipe> expectedRecipes = new List<Recipe>();
-            Recipe recipe = new Recipe("TomatenSoep", "Chantal", 4, 1);
+            Recipe recipe = new Recipe("TomatenSoep", "Chantal", 4, "blaat", 1);
             List<Ingredient> ingredients = new List<Ingredient>() { new Ingredient("Tomaat"), new Ingredient("Soep") };
             recipe.AddIngredients(ingredients);
             expectedRecipes.Add(recipe);
-            recipe = new Recipe("ChanpignonSoep", "Rudolph", 3, 2);
+            recipe = new Recipe("ChanpignonSoep", "Rudolph", 3, "schaap", 2);
             ingredients = new List<Ingredient>() {new Ingredient("Champignon"), new Ingredient("Soep")};
             recipe.AddIngredients(ingredients);
             expectedRecipes.Add(recipe);
@@ -70,9 +70,9 @@ namespace PersonalCookbook.Logic.Tests
         {
             IRecipeRepository repo = new RecipeRepository(new StubRecipeContext());
             List<RecipeSummary> expectedSummaries= new List<RecipeSummary>();
-            RecipeSummary summary = new RecipeSummary("TomatenSoep", "Chantal", 4);
+            RecipeSummary summary = new RecipeSummary("TomatenSoep", "Chantal", 4, 1);
             expectedSummaries.Add(summary);
-            summary = new RecipeSummary("ChampignonSoep", "Rudolph", 3);
+            summary = new RecipeSummary("ChampignonSoep", "Rudolph", 3, 2);
             expectedSummaries.Add(summary);
 
             List<RecipeSummary> actualSummaries = repo.GetAllRecipeSummaries();

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PersonalCookbook.Models;
 
 namespace PersonalCookbook
 {
@@ -22,6 +23,12 @@ namespace PersonalCookbook
         public EditRecipe()
         {
             InitializeComponent();
+        }
+
+        public EditRecipe(Recipe recipe)
+        {
+            InitializeComponent();
+            RecipeDetails.DataContext = recipe;
         }
     }
 }

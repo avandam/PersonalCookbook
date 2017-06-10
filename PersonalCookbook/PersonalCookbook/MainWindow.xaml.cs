@@ -34,5 +34,14 @@ namespace PersonalCookbook
             List<RecipeSummary> recipes = recipeRepository.GetAllRecipeSummaries();
             listRecipes.ItemsSource = recipes;
         }
+
+        public void RecipeDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ListViewItem listViewSummary = sender as ListViewItem;
+            RecipeSummary summary = listViewSummary.DataContext as RecipeSummary;
+            Recipe completeRecipe = recipeRepository.GetRecipeFromSummary(summary);
+            EditRecipe editRecipeWindow = new EditRecipe(completeRecipe);
+            editRecipeWindow.ShowDialog();
+        }
     }
 }

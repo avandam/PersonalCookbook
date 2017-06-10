@@ -15,6 +15,11 @@
                     <GridViewColumn Header="Rating" Width="50" DisplayMemberBinding="{Binding Rating}"/>
                 </GridView>
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="RecipeDoubleClick" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
     </Grid>
 </Window>

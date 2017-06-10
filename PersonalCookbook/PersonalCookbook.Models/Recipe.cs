@@ -8,22 +8,24 @@ namespace PersonalCookbook.Models
 {
     public class Recipe
     {
-        public string Name { get; private set; }
+        public string Name { get; set; }
         public int Id { get; private set; } = -1;
-        public string Source { get; private set; }
-        public int Rating { get; private set; }
-        public List<Ingredient> Ingredients { get; private set; }
+        public string Source { get; set; }
+        public int Rating { get; set; }
+        public string Comment { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
 
-        public Recipe(string name, string source, int rating, int id) : this(name, source, rating)
+        public Recipe(string name, string source, int rating, string comment, int id) : this(name, source, rating, comment)
         {
             Id = id;
         }
 
-        public Recipe(string name, string source, int rating)
+        public Recipe(string name, string source, int rating, string comment)
         {
             Name = name;
             Source = source;
             Rating = rating;
+            Comment = comment;
             Ingredients = new List<Ingredient>();
         }
 

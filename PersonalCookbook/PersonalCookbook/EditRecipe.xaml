@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="EditRecipe" Height="600" Width="640">
     <Border Margin="0,5,5,0">
-        <Grid>
+        <Grid Name="RecipeDetails">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="160"/>
                 <ColumnDefinition Width="160"/>
@@ -34,7 +34,7 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Column="0" Grid.Row="0" Name="LblRecipeTitle" Content="Title" />
-            <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0" Name="TxtRecipeTitle" MaxLength="255" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" />
+            <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0" Name="TxtRecipeTitle" MaxLength="255" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding Name}"/>
             <Label Grid.Column="0" Grid.Row="1" Name="LblCourse" Content="Course" />
             <ComboBox Grid.Column="1" Grid.Row="1" Name="CmbCourse">
                 <ComboBoxItem Name="CmbCourseItemStarter" Content="Starter" />
@@ -61,7 +61,7 @@
             </ComboBox>
 
             <Label Grid.Column="0" Grid.Row="3" Name="LblRating" Content="Rating" />
-            <TextBox Grid.Column="1" Grid.Row="3" Name="TxtRating" MaxLength="10" />
+            <TextBox Grid.Column="1" Grid.Row="3" Name="TxtRating" MaxLength="10" Text="{Binding Rating}"/>
             <Label Grid.Column="2" Grid.Row="3" Name="LblYield" Content="Yield" />
             <TextBox Grid.Column="3" Grid.Row="3" Name="TxtYield" MaxLength="50" />
             <Label Grid.Column="0" Grid.Row="4" Name="LblPreparationTime" Content="Preparation time" />
@@ -73,9 +73,9 @@
             <Label Grid.Column="0" Grid.Row="7" Name="LblNutrition" Content="Nutrition" />
             <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="7" Grid.RowSpan="2" MaxLength="1000" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" />
             <Label Grid.Column="0" Grid.Row="9" Name="LblComment" Content="Comment" />
-            <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="9" Grid.RowSpan="2" MaxLength="1000" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" />
+            <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="9" Grid.RowSpan="2" MaxLength="1000" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding Comment}"/>
             <Label Grid.Column="0" Grid.Row="11" Name="LblSource" Content="Source" />
-            <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="11" MaxLength="255" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" />
+            <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="11" MaxLength="255" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding Source}"/>
             <Label Grid.Column="0" Grid.Row="12" Name="LblUrl" Content="Url" />
             <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="12" MaxLength="255" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
             <Label Grid.Column="0" Grid.Row="13" Name="LblVideoUrl" Content="Video Url" />

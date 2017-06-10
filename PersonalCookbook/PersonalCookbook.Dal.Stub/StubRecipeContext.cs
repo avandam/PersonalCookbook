@@ -13,8 +13,8 @@ namespace PersonalCookbook.Dal.Stub
         public List<Recipe> GetAllRecipes()
         {
             List<Recipe> recipes = new List<Recipe>();
-            recipes.Add(new Recipe("TomatenSoep", "Chantal", 4, 1));
-            recipes.Add(new Recipe("ChampignonSoep", "Rudolph", 3, 2));
+            recipes.Add(new Recipe("TomatenSoep", "Chantal", 4, "blaat", 1));
+            recipes.Add(new Recipe("ChampignonSoep", "Rudolph", 3, "schaap", 2));
             return recipes;
         }
     }

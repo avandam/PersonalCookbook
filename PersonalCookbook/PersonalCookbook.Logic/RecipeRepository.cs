@@ -41,16 +41,23 @@ namespace PersonalCookbook.Logic
             return recipes;
         }
 
+        //TODO Chantal: In the future we don't want to get all recipes, but get the summaries from the context based on filtering
         public List<RecipeSummary> GetAllRecipeSummaries()
         {
             List<Recipe> recipes = GetAllRecipes();
             List<RecipeSummary> summaries = new List<RecipeSummary>();
             foreach (Recipe recipe in recipes)
             {
-                RecipeSummary summary = new RecipeSummary(recipe.Name, recipe.Source, recipe.Rating);
+                RecipeSummary summary = new RecipeSummary(recipe.Name, recipe.Source, recipe.Rating, recipe.Id);
                 summaries.Add(summary);
             }
             return summaries;
+        }
+
+        public Recipe GetRecipeFromSummary(RecipeSummary summary)
+        {
+            List<Recipe> recipes = GetAllRecipes();
+            return recipes.FirstOrDefault(rec => rec.Id == summary.Id);
         }
     }
 }
